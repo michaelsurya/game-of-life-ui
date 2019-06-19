@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ToolBar Name="FirstTB" Height="25" Grid.Row="0">
+            <Button Name="StartBtn" Content="Start" Width="50"/>
+            <Button Name="StopBtn" Content="Stop" Width="50"/>
+            <Button Name="ResetBtn" Content="Reset" Width="50"/>
+            <TextBlock TextAlignment="Right" Padding="3" Width="60">Delay(ms)</TextBlock>
+            <TextBox x:Name="DelayTxtBox" Width="60"></TextBox>
+        </ToolBar>
+        <ToolBar Name="SecondTB" Height="25" Grid.Row="1">
+            <TextBlock TextAlignment="Right" Padding="3" Width="100">Min Neighbour(s)</TextBlock>
+            <TextBox x:Name="MinNeighbour" Width="30"></TextBox>
+            <TextBlock TextAlignment="Right" Padding="3" Width="100">Max Neighbour(s)</TextBlock>
+            <TextBox x:Name="MaxNeighbour" Width="30"></TextBox>
+            <TextBlock TextAlignment="Right" Padding="3" Width="180">Req Neighbour(s) To Reproduce</TextBlock>
+            <TextBox x:Name="ReqNeighbour" Width="30"></TextBox>
+        </ToolBar>
+
+        <Grid Name="BoardGrid" Grid.Row="2" ShowGridLines="True"/>
     </Grid>
 </Window>
