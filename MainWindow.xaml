@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameOfLifeUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -19,16 +19,22 @@
             <Button Name="ResetBtn" Content="Reset" Width="50"/>
             <TextBlock TextAlignment="Right" Padding="3" Width="60">Delay(ms)</TextBlock>
             <TextBox x:Name="DelayTxtBox" Width="60"></TextBox>
+            <TextBlock TextAlignment="Right" Padding="3" Width="80">Board Width</TextBlock>
+            <TextBox x:Name="BoardWidth" Width="30">30</TextBox>
+            <TextBlock TextAlignment="Right" Padding="3" Width="80">Board Height</TextBlock>
+            <TextBox x:Name="BoardHeight" Width="30">30</TextBox>
+            <Button Name="UpdateBtn" Content="Update Board Size" Width="50" Click="Update"/>
         </ToolBar>
         <ToolBar Name="SecondTB" Height="25" Grid.Row="1">
             <TextBlock TextAlignment="Right" Padding="3" Width="100">Min Neighbour(s)</TextBlock>
-            <TextBox x:Name="MinNeighbour" Width="30"></TextBox>
+            <TextBox x:Name="MinNeighbour" Width="30">2</TextBox>
             <TextBlock TextAlignment="Right" Padding="3" Width="100">Max Neighbour(s)</TextBlock>
-            <TextBox x:Name="MaxNeighbour" Width="30"></TextBox>
+            <TextBox x:Name="MaxNeighbour" Width="30">3</TextBox>
             <TextBlock TextAlignment="Right" Padding="3" Width="180">Req Neighbour(s) To Reproduce</TextBlock>
-            <TextBox x:Name="ReqNeighbour" Width="30"></TextBox>
+            <TextBox x:Name="ReqNeighbour" Width="30">3</TextBox>
         </ToolBar>
 
-        <Grid Name="BoardGrid" Grid.Row="2" ShowGridLines="True"/>
+        <Grid Name="BoardGrid" Grid.Row="2" ShowGridLines="True">
+        </Grid>
     </Grid>
 </Window>

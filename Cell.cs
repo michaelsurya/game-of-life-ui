@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace GameOfLifeUI
 {
@@ -16,11 +17,12 @@ namespace GameOfLifeUI
         private bool IsAliveNextRound;
 
         /* Constructor */
-        public Cell(bool currentState, int row, int col)
+        public Cell(bool currentState, int col, int row)
         {
             IsAlive = currentState;
             Row = row;
             Col = col;
+            this.Background = Brushes.Black;
         }
 
         /* OnClick Override, what happens when the cell is clicked*/
@@ -35,7 +37,7 @@ namespace GameOfLifeUI
             else
             {
                 IsAlive = true;
-                this.Opacity = 0;
+                this.Opacity = 1;
             }
 
             if (IsAliveNextRound)

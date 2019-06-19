@@ -23,6 +23,53 @@ namespace GameOfLifeUI
         public MainWindow()
         {
             InitializeComponent();
+            StartGame();
+        }
+
+        public void StartGame()
+        {
+            SetBoardSize(30, 30);
+        }
+
+        public void SetBoardSize(int widht, int height)
+        {
+            //Clear Column Def
+            BoardGrid.ColumnDefinitions.Clear();
+            //Clear Row Def
+            BoardGrid.RowDefinitions.Clear();
+
+            //Build Col
+            for (int i = 0; i < widht; i++)
+            {
+                ColumnDefinition col = new ColumnDefinition();
+                BoardGrid.ColumnDefinitions.Add(col);
+            }
+            //Build Row
+            for (int i = 0; i < height; i++)
+            {
+                RowDefinition row = new RowDefinition();
+                BoardGrid.RowDefinitions.Add(row);
+            }
+
+            //Populate the dead cell
+            for (int x = 0; x < BoardGrid.ColumnDefinitions.Count; x++)
+            {
+                for (int y = 0; y < BoardGrid.RowDefinitions.Count; y++)
+                {
+                    Cell cell = new Cell(true, x, y);
+                    cell.Opacity = 0;
+                    cell.Width = BoardGrid.Width / BoardGrid.ColumnDefinitions.Count;
+                    cell.Height = BoardGrid.Height / BoardGrid.RowDefinitions.Count;
+                    cell.SetValue(Grid.ColumnProperty, x);
+                    cell.SetValue(Grid.RowProperty, y);
+                    BoardGrid.Children.Add(cell);
+                }
+            }
+        }
+
+        public void Update(Object sender, RoutedEventArgs e)
+        {
+            SetBoardSize(Convert.ToInt32(BoardWidth.Text), Convert.ToInt32(BoardHeight.Text));
         }
     }
 }
