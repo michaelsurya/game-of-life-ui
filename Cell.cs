@@ -57,9 +57,12 @@ namespace GameOfLifeUI
             if(IsAlive && (neighboursCount < minNeighbour || neighboursCount > maxNeighbour))
             {
                 IsAliveNextRound = false;
-            }else if( neighboursCount == reqNeighbour)
+                this.Background = Brushes.Red;
+            }else if(!IsAlive && neighboursCount == reqNeighbour)
             {
                 IsAliveNextRound = true;
+                this.Background = Brushes.Green;
+                this.Opacity = 1;
             } 
         }
     }

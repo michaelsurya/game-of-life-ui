@@ -15,6 +15,7 @@
 
         <ToolBar Name="FirstTB" Height="25" Grid.Row="0">
             <ToggleButton Name="StartBtn" Content="Start" Width="50" Checked="Start"/>
+            <Button Name="NextBtn" Content="Next" Width="50" Click="Next"/>
             <Button Name="ResetBtn" Content="Reset" Width="50" Click="Reset"/>
             <TextBlock TextAlignment="Right" Padding="3" Width="60">Delay(ms)</TextBlock>
             <TextBox Name="DelayTxtBox" Width="60">100</TextBox>

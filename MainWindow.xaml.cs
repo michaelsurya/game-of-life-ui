@@ -25,6 +25,8 @@ namespace GameOfLifeUI
         private int MaxNeighbour;
         private int ReqNeighbour;
 
+        private int counter = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -103,15 +105,19 @@ namespace GameOfLifeUI
         private async Task Run(ToggleButton toggle)
         {
             int delay = Convert.ToInt32(DelayTxtBox.Text);
+
+
             while (toggle.IsChecked == true)
             {
-                foreach (Cell cell in BoardGrid.Children) //Iteratre through all cell in the grid
+                if (counter == 0)
                 {
-                    int neighbourCount = CountNeighbour(cell); //Count the number of neighbour alive
-
-                    cell.NextRound(neighbourCount, MinNeighbour, MaxNeighbour, ReqNeighbour); //Determine if it should alive or die
+                    Next();
                 }
-                UpdateBoard();
+                else
+                {
+                    UpdateBoard();
+                }
+                counter = (counter + 1) % 2;
                 await Task.Delay(delay);
             }
         }
@@ -156,6 +162,31 @@ namespace GameOfLifeUI
             return count;
         }
 
+        public void Next(Object sender, RoutedEventArgs e)
+        {
+            
+            if(counter == 0)
+            {
+                Next();
+            }
+            else
+            {
+                UpdateBoard();
+            }
+            counter = (counter + 1) % 2;
+            D:\Michael\Nonlinear\GameOfLifeUI\MainWindow.xaml
+        }
+
+        public void Next()
+        {
+            foreach (Cell cell in BoardGrid.Children) //Iteratre through all cell in the grid
+            {
+                int neighbourCount = CountNeighbour(cell); //Count the number of neighbour alive
+
+                cell.NextRound(neighbourCount, MinNeighbour, MaxNeighbour, ReqNeighbour); //Determine if it should alive or die
+            }
+        }
+
         public void UpdateBoard()
         {
             foreach (Cell cell in BoardGrid.Children)
@@ -163,6 +194,7 @@ namespace GameOfLifeUI
                 cell.IsAlive = cell.IsAliveNextRound;
                 if (cell.IsAlive)
                 {
+                    cell.Background = Brushes.Black;
                     cell.Opacity = 1;
                 }
                 else
