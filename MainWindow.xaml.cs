@@ -174,7 +174,6 @@ namespace GameOfLifeUI
                 UpdateBoard();
             }
             counter = (counter + 1) % 2;
-            D:\Michael\Nonlinear\GameOfLifeUI\MainWindow.xaml
         }
 
         public void Next()
