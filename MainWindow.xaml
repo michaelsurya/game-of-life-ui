@@ -14,24 +14,23 @@
         </Grid.RowDefinitions>
 
         <ToolBar Name="FirstTB" Height="25" Grid.Row="0">
-            <Button Name="StartBtn" Content="Start" Width="50"/>
-            <Button Name="StopBtn" Content="Stop" Width="50"/>
-            <Button Name="ResetBtn" Content="Reset" Width="50"/>
+            <ToggleButton Name="StartBtn" Content="Start" Width="50" Checked="Start"/>
+            <Button Name="ResetBtn" Content="Reset" Width="50" Click="Reset"/>
             <TextBlock TextAlignment="Right" Padding="3" Width="60">Delay(ms)</TextBlock>
-            <TextBox x:Name="DelayTxtBox" Width="60"></TextBox>
+            <TextBox Name="DelayTxtBox" Width="60">100</TextBox>
             <TextBlock TextAlignment="Right" Padding="3" Width="80">Board Width</TextBlock>
-            <TextBox x:Name="BoardWidth" Width="30">30</TextBox>
+            <TextBox Name="BoardWidthTxtBox" Width="30">10</TextBox>
             <TextBlock TextAlignment="Right" Padding="3" Width="80">Board Height</TextBlock>
-            <TextBox x:Name="BoardHeight" Width="30">30</TextBox>
-            <Button Name="UpdateBtn" Content="Update Board Size" Width="50" Click="Update"/>
+            <TextBox Name="BoardHeightTxtBox" Width="30">10</TextBox>
+            <Button Name="UpdateBtn" Content="Update" Width="50" Click="UpdateSize"/>
         </ToolBar>
         <ToolBar Name="SecondTB" Height="25" Grid.Row="1">
             <TextBlock TextAlignment="Right" Padding="3" Width="100">Min Neighbour(s)</TextBlock>
-            <TextBox x:Name="MinNeighbour" Width="30">2</TextBox>
+            <TextBox Name="MinNeighbourTxtBox" Width="30">2</TextBox>
             <TextBlock TextAlignment="Right" Padding="3" Width="100">Max Neighbour(s)</TextBlock>
-            <TextBox x:Name="MaxNeighbour" Width="30">3</TextBox>
+            <TextBox Name="MaxNeighbourTxtBox"  Width="30">3</TextBox>
             <TextBlock TextAlignment="Right" Padding="3" Width="180">Req Neighbour(s) To Reproduce</TextBlock>
-            <TextBox x:Name="ReqNeighbour" Width="30">3</TextBox>
+            <TextBox Name="ReqNeighbourTxtBox"  Width="30">3</TextBox>
         </ToolBar>
 
         <Grid Name="BoardGrid" Grid.Row="2" ShowGridLines="True">

@@ -13,11 +13,11 @@ namespace GameOfLifeUI
         public int Row { get; set; }
         public int Col { get; set; }
 
-        private bool IsAlive;
-        private bool IsAliveNextRound;
+        public bool IsAlive { get; set; }
+        public bool IsAliveNextRound { get; set; }
 
         /* Constructor */
-        public Cell(bool currentState, int col, int row)
+        public Cell(bool currentState, int row, int col)
         {
             IsAlive = currentState;
             Row = row;
@@ -61,16 +61,6 @@ namespace GameOfLifeUI
             {
                 IsAliveNextRound = true;
             } 
-        }
-
-        public void Die()
-        {
-            IsAlive = false;
-        }
-
-        public void Born()
-        {
-            IsAlive = true;
         }
     }
 }
